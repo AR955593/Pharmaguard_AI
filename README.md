@@ -32,10 +32,9 @@ Adverse drug reactions cause over 100,000 preventable deaths annually in the USA
   <img src="https://github.com/AR955593/Pharmaguard_AI/blob/main/Screenshot_20260219-180251.PharmaGuard.png" width="200" />
   <img src="https://github.com/AR955593/Pharmaguard_AI/blob/main/Screenshot_20260219-180323.PharmaGuard.png" width="200" />
 </p>
+## 📱 **ScreenShot For Web Application**
 <p align="center">
-## **ScreenShot For Web Application**
-
-  <img src="https://github.com/AR955593/Pharmaguard_AI/blob/main/Screenshot%202026-02-19%20180628.png" width="200" />
+<img src="https://github.com/AR955593/Pharmaguard_AI/blob/main/Screenshot%202026-02-19%20180628.png" width="200" />
   <img src="https://github.com/AR955593/Pharmaguard_AI/blob/main/Screenshot%202026-02-19%20180704.png" width="200" />
   <img src = "https://github.com/AR955593/Pharmaguard_AI/blob/main/Screenshot%202026-02-19%20180721.png" width = "200" />
   <img src = "https://github.com/AR955593/Pharmaguard_AI/blob/main/Screenshot%202026-02-19%20180736.png" width = "200" />
