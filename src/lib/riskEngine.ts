@@ -97,7 +97,10 @@ export const analyzeRisk = async (variants: Variant[], drugInput: string, patien
     const geneVariants = variants.filter(v => v.gene === gene);
     const risk = evaluateDrugRisk(drug, phenotype);
 
-    const llmExplanation = await generateExplanation(drug, gene, risk.label);
+    const llmExplanation = await generateExplanation(drug, gene, risk.label, {
+        phenotype,
+        recommendation: risk.recommendation
+    });
 
     return {
         patient_id: patientId,

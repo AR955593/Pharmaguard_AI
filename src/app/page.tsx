@@ -8,7 +8,7 @@ import { parseVCF } from "@/lib/vcfParser";
 import { analyzeRisk } from "@/lib/riskEngine";
 import { AnalysisResult } from "@/types";
 import { useState } from "react";
-import { Activity } from "lucide-react";
+import { Activity, Sparkles, ShieldCheck, Microscope } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
@@ -30,12 +30,10 @@ export default function Home() {
 
     setIsLoading(true);
     setError(null);
-    setResult(null); // Clear previous result for animation re-trigger
+    setResult(null);
 
     try {
-      // Simulate a slightly longer delay for the "scanning" effect
-      await new Promise(resolve => setTimeout(resolve, 1500));
-
+      await new Promise((resolve) => setTimeout(resolve, 1200));
       const variants = parseVCF(vcfContent);
       const riskAnalysis = await analyzeRisk(variants, drugName);
       setResult(riskAnalysis);
@@ -48,57 +46,75 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen text-white selection:bg-emerald-500/30 font-sans relative">
+    <div className="relative min-h-screen overflow-hidden text-slate-800 selection:bg-sky-200/70">
       <Background />
 
-      {/* Navbar */}
       <motion.header
-        initial={{ y: -100, opacity: 0 }}
+        initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="border-b border-slate-800/50 bg-[#0B0F19]/50 backdrop-blur-md sticky top-0 z-50"
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="sticky top-0 z-50 mx-auto w-full border-b border-sky-200/70 bg-white/40 backdrop-blur-xl"
       >
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-              <Activity className="text-white w-5 h-5" />
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:px-7">
+          <div className="flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-cyan-400 text-white shadow-[0_18px_28px_-15px_rgba(35,143,230,0.8)]">
+              <Activity className="h-5 w-5" />
             </div>
-            <span className="text-xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
-              PharmaGuard
-            </span>
+            <span className="text-xl font-black tracking-tight text-slate-800">PharmaGuard</span>
           </div>
-          <div className="text-sm font-medium text-slate-400 hidden sm:block border border-slate-800/50 px-3 py-1 rounded-full bg-slate-900/30">
-            RIFT 2026 • Precision Medicine
+          <div className="hidden rounded-full border border-sky-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-600 md:block">
+            RIFT 2026 | Precision Medicine
           </div>
         </div>
       </motion.header>
 
-      <main className="max-w-7xl mx-auto px-6 py-12 relative z-10">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+      <main className="relative z-10 mx-auto max-w-7xl px-5 pb-20 pt-10 md:px-7 md:pt-14">
+        <section className="mx-auto mb-12 max-w-4xl text-center">
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-emerald-100 to-slate-400 bg-clip-text text-transparent tracking-tight"
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="gradient-text text-4xl font-black leading-tight tracking-tight md:text-6xl"
           >
-            Personalized Pharmacogenomic Risk Prediction
+            3D Clinical Intelligence for Personalized Drug Safety
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg text-slate-400 leading-relaxed"
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg"
           >
-            Upload your genetic data to receive clinically actionable insights and AI-driven explanations for drug compatibility.
+            Upload VCF data, analyze gene-drug response, and get actionable recommendations in a modern
+            light-space interface built for clarity.
           </motion.p>
-        </div>
 
-        <div className="space-y-12">
-          {/* File Upload Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.45 }}
+            className="mt-8 flex flex-wrap justify-center gap-3"
+          >
+            <div className="glass-card-soft flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-slate-700">
+              <Sparkles className="h-4 w-4 text-sky-500" />
+              AI Explanation
+            </div>
+            <div className="glass-card-soft flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-slate-700">
+              <ShieldCheck className="h-4 w-4 text-cyan-500" />
+              Risk Classification
+            </div>
+            <div className="glass-card-soft flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-slate-700">
+              <Microscope className="h-4 w-4 text-blue-500" />
+              Genomic Profile
+            </div>
+          </motion.div>
+        </section>
+
+        <div className="space-y-10 [perspective:1300px]">
           <motion.section
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            initial={{ opacity: 0, y: 14, rotateX: 3 }}
+            animate={{ opacity: 1, y: 0, rotateX: 0 }}
+            transition={{ duration: 0.65, delay: 0.55 }}
+            className="glass-card rounded-[1.6rem] p-5 md:p-8"
           >
             <FileUpload onFileUpload={handleFileUpload} />
 
@@ -108,41 +124,34 @@ export default function Home() {
                   initial={{ opacity: 0, height: 0, marginTop: 0 }}
                   animate={{ opacity: 1, height: "auto", marginTop: 16 }}
                   exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                  className="max-w-xl mx-auto overflow-hidden"
+                  className="mx-auto max-w-xl overflow-hidden"
                 >
-                  <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center gap-3 text-red-400">
-                    <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_10px_rgba(239,68,68,0.5)]" />
-                    <p className="text-sm font-medium">{error}</p>
+                  <div className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-medium text-rose-600 shadow-[0_16px_30px_-24px_rgba(227,91,116,0.9)]">
+                    {error}
                   </div>
                 </motion.div>
               )}
             </AnimatePresence>
           </motion.section>
 
-          {/* Drug Input Section */}
           <motion.section
-            layout
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            initial={{ opacity: 0, y: 14, rotateX: 2 }}
+            animate={{ opacity: 1, y: 0, rotateX: 0 }}
+            transition={{ duration: 0.65, delay: 0.72 }}
+            className="glass-card rounded-[1.6rem] p-5 md:p-8"
           >
-            <DrugInput
-              onAnalyze={handleAnalyze}
-              isLoading={isLoading}
-              disabled={!vcfContent}
-            />
+            <DrugInput onAnalyze={handleAnalyze} isLoading={isLoading} disabled={!vcfContent} />
           </motion.section>
 
-          {/* Results Section */}
           <section>
             <AnimatePresence mode="wait">
               {result && (
                 <motion.div
                   key="results"
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 40, rotateX: 4 }}
+                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
                   exit={{ opacity: 0, y: 20 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 0.55 }}
                 >
                   <ResultsDisplay result={result} />
                 </motion.div>
@@ -152,12 +161,11 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className="border-t border-slate-800/50 mt-32 py-12 bg-slate-900/20 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6 text-center text-slate-600 text-sm">
-          <p className="font-medium text-slate-500">© 2026 PharmaGuard. RIFT Hackathon Submission.</p>
-          <p className="mt-3 text-xs opacity-60 max-w-lg mx-auto leading-relaxed">
-            Disclaimer: For demonstration purposes only. Not a medical device. Consult a physician before changing medication.
-            Analysis is performed locally in your browser for privacy.
+      <footer className="border-t border-sky-200/70 bg-white/40 py-10 backdrop-blur-lg">
+        <div className="mx-auto max-w-7xl px-5 text-center text-sm text-slate-500 md:px-7">
+          <p className="font-semibold text-slate-600">Copyright 2026 PharmaGuard. RIFT Hackathon Submission.</p>
+          <p className="mx-auto mt-2 max-w-xl text-xs leading-relaxed">
+            Demonstration only. Not a medical device. Consult a physician before changing any medication.
           </p>
         </div>
       </footer>
