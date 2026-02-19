@@ -5,7 +5,7 @@ Adverse drug reactions cause over 100,000 preventable deaths annually in the USA
 
 ## 🚀 Deployment Instructions (Vercel)
 1. Push this repository to GitHub.
-2. Login to [Vercel](https://vercel.com).
+2. Login to [Render](https://render.com/).
 3. Click "Add New..." -> "Project".
 4. Import your GitHub repository.
 5. Framework Preset should automatically detect "Next.js".
