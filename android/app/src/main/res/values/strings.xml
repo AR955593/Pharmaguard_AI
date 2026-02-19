@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">PharmaGuard</string>
+    <string name="title_activity_main">PharmaGuard</string>
+    <string name="package_name">com.rift.pharmaguard</string>
+    <string name="custom_url_scheme">com.rift.pharmaguard</string>
+</resources>
