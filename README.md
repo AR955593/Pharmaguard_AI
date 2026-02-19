@@ -54,8 +54,6 @@ Adverse drug reactions cause over 100,000 preventable deaths annually in the USA
 - `src/lib`: Core logic (vcfParser, riskEngine, llmService)
 - `src/types`: TypeScript definitions
 
-## 👥 Team
-- **Ankit** - Developer
 
 ---
 *Disclaimer: For demonstration purposes only. Not a medical device.*
