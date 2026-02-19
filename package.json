@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "node scripts/start.cjs",
     "lint": "eslint"
   },
   "dependencies": {
@@ -20,6 +20,7 @@
     "openai": "^6.22.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "serve": "^14.2.4",
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
