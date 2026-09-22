@@ -20,7 +20,7 @@ Adverse drug reactions cause over 100,000 preventable deaths annually in the USA
 - **Clinical Recommendations**: Provides dosing guidelines based on phenotype.
 - **Premium UI**: Modern, responsive interface with real-time analysis.
 <h2>📱 <span style="font-weight:bold;">Link For  Web Application</span></h2>
-[PharmaGuard AI Web App](https://pharmaguard-ai-z4wf.vercel.app/)
+[PharmaGuard AI Web App](https://pharmaguard-ai-ankit-rajputs-projects-a4789147.vercel.app/)
 
 
 ## 🛠️ Tech Stack
